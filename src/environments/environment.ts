@@ -3,7 +3,19 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiUrl: 'https://localhost:44304/api/',
+  openIdConnectSettings: {
+    authority: 'https://localhost:44375/', // IDP server
+    client_id: 'CarpoolingClient', // clientID as configured in the IDP level
+    redirect_uri: 'https://localhost:4200/signin-oidc',
+    scope: 'openid profile roles permissions carpoolingapi',
+    response_type: 'id_token token',
+    post_logout_redirect_uri: 'https://localhost:4200/',
+    automaticSilentRenew: true,
+    silent_redirect_uri: 'https://localhost:4200/redirect-silentrenew'
+  }
+  // apiUrl: 'http://localhost:5201/api/'
 };
 
 /*

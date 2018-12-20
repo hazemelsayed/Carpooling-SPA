@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="card" *ngIf='userProfile'>
+      <div class="card-header">
+          {{userProfile.name}}
+      </div>
+      <div class="card-body">
+        <h5 class="card-title"></h5>
+        <p class="card-text"> Role : {{userProfile.role}}</p>
+        <ul>
+          <li>Email : {{userProfile.email}}</li>
+          <li>Permissions : {{userProfile.permissions}}</li>
+        </ul>
+      </div>
+    </div>
+</div>

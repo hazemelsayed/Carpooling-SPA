@@ -1,0 +1,55 @@
+<div class="card">
+  <div class="card-header">{{ pageTitle }}</div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-2">Filter by:</div>
+      <div class="col-md-4"><input type="text" /></div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <h4>Filtered by: </h4>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-hover table-dark" *ngIf="trips && trips.length">
+        <thead>
+          <tr>
+            <th>
+              <button class="btn btn-primary">
+              </button>
+            </th>
+            <th>#</th>
+            <th>Travel Date</th>
+            <th>Creation Date</th>
+            <th>Source City</th>
+            <th>Destination City</th>
+            <th>Seats Offered</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let trip of trips">
+            <td>
+              <img class="img-thumbnail"
+                src="https://is4-ssl.mzstatic.com/image/thumb/Purple118/v4/9e/c7/d5/9ec7d59c-9b87-a8fc-753d-e04d45c0b349/source/30x30bb.jpg"
+              />
+            </td>
+            <td>
+              <a>
+                {{ trip.id }}
+              </a>
+            </td>
+            <td>{{ trip.travelStartDate | date }}</td>
+            <td>{{ trip.creationDate | date }}</td>
+            <td>{{ trip.sourceCityID }}</td>
+            <td>{{ trip.destinationCityID }}</td>
+            <td>{{ trip.seatsOffered }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="card-footer text-muted">
+    Pagination
+  </div>
+</div>

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { OpenIdConnectService } from './_services/OpenIdConnect.service';
+import { IUser } from './_models/Iuser';
 
 @Component({
   selector: 'app-root',
@@ -8,23 +9,36 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent implements OnInit {
 
-  title = 'Carpooling-SPA';
-  ridesList: any;
+  // @Output() currentUserOutput = new EventEmitter();
+  currentUser: IUser;
+  title = 'Carpooling';
+  _openIdConnectService;
 
-
-  constructor(private httpClient: HttpClient) {
+  constructor(private openIdConnectService: OpenIdConnectService) {
+    this._openIdConnectService = openIdConnectService;
   }
 
   ngOnInit(): void {
-    this.ridesList = this.getRidesList();
+    this.openIdConnectService.userLoaded$.subscribe((userLoaded) => {
+      if (userLoaded) {
+        this.currentUser = this.openIdConnectService.user.profile;
+        // this.currentUserOutput.emit(this.openIdConnectService.user.profile);
+      } else {
+        console.log('An error happened: user falied to loaded.');
+      }
+    });
   }
 
-  getRidesList(): any {
-    this.httpClient.get('http://localhost:5201/api/values/').subscribe(
-      response => {
-        this.ridesList = response;
-      }, error => {
-        console.log(error);
-      });
+  /* The routeguard taking care of authentication piece RequiredAuthenticatedRouteGuardService
+  ngOnInit(): void {
+    const path = window.location.pathname;
+    if (path !== '/signin-oidc') {
+      if (!this.openIdConnectService.userAvailable) {
+        this.openIdConnectService.triggerSignIn();
+      }
     }
+
+  }
+  */
+
 }
