@@ -15,10 +15,11 @@ export class TripService {
     constructor(private http: HttpClient) {}
 
     getTrips(): Observable<ITrip[]> {
-        return this.http.get<ITrip[]>(this.baseUrl + 'ride').pipe(
-            tap(data => console.log('All: ' + JSON.stringify(data))),
-            catchError(this.handleError)
-        );
+        return this.http.get<ITrip[]>(this.baseUrl + 'ride');
+        // .pipe(
+        //     tap(data => console.log('All: ' + JSON.stringify(data))),
+        //     catchError(this.handleError)
+        // );
     }
 
     private handleError(err: HttpErrorResponse) {

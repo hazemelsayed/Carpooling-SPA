@@ -10,6 +10,7 @@ import { EnsureAcceptHeaderInterceptor } from './shared/ensure-accept-header-int
 import { AddAuthorizationHeaderInterceptor } from './shared/add-authorization-header-interceptor';
 import { RedirectSilentRenewComponent } from './signin-utilities/redirect-silent-renew/redirect-silent-renew.component';
 import { SigninOidcComponent } from './signin-utilities/signin-oidc/signin-oidc.component';
+import { ErrorInterceptor } from './shared/error-interceptor';
 
 @NgModule({
    declarations: [
@@ -34,6 +35,11 @@ import { SigninOidcComponent } from './signin-utilities/signin-oidc/signin-oidc.
       {
          provide: HTTP_INTERCEPTORS,
          useClass: EnsureAcceptHeaderInterceptor,
+         multi: true
+      },
+      {
+         provide: HTTP_INTERCEPTORS,
+         useClass: ErrorInterceptor,
          multi: true
       }
       // OpenIdConnectService,
