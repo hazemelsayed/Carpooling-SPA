@@ -1,0 +1,9 @@
+- Used to generate the certificates
+link : https://medium.com/@richardr39/using-angular-cli-to-serve-over-https-locally-70dab07417c8
+command: req -new -x509 -newkey rsa:2048 -sha256 -nodes -keyout localhost.key -days 3560 -out localhost.crt -config certificate.cnf
+
+- To use the generated certificate inside the Angular app
+ng serve --ssl true -o --ssl-key privatekey.key --ssl-cert certificate.pem
+
+- Installing oidc-client
+npm install oidc-client --save

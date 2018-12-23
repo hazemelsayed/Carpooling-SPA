@@ -1,0 +1,6 @@
+IDP: 	https://localhost:44375/
+		https://localhost:44375/well-known/jwks.json
+		https://localhost:44375/.well-known/openid-configuration/jwks
+API: 	https://localhost:44304/
+
+Angular: https://localhost:4200

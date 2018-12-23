@@ -1,0 +1,6 @@
+Angular 7
+OpenIDConnect (JWT, user management)
+
+Alertfyjs (notifications)
+NGX Bootstrap (alternative for jquery)
+Bootswatch (theme changing)
