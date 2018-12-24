@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { OpenIdConnectService } from './_services/OpenIdConnect.service';
 import { IUser } from './_models/Iuser';
+import { AlertifyService } from './_services/alertify.service';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,7 @@ export class AppComponent implements OnInit {
   title = 'Carpooling';
   _openIdConnectService;
 
-  constructor(private openIdConnectService: OpenIdConnectService) {
+  constructor(private openIdConnectService: OpenIdConnectService, private alertify: AlertifyService) {
     this._openIdConnectService = openIdConnectService;
   }
 
@@ -22,6 +23,7 @@ export class AppComponent implements OnInit {
     this.openIdConnectService.userLoaded$.subscribe((userLoaded) => {
       if (userLoaded) {
         this.currentUser = this.openIdConnectService.user.profile;
+        this.alertify.success('Welcome ' + this.currentUser.name);
         // this.currentUserOutput.emit(this.openIdConnectService.user.profile);
       } else {
         console.log('An error happened: user falied to loaded.');
