@@ -14,18 +14,18 @@
             <button *ngIf='!_openIdConnectService.userAvailable' class='btn btn-primary'
             (click)="_openIdConnectService.triggerSignIn()">Log in</button>
 
-            <div *ngIf='_openIdConnectService.userAvailable' class="dropdown">
-                <a class="dropdown-toggle text-light">
-                  Welcome {{this.currentUser.name}}
+            <div *ngIf='_openIdConnectService.userAvailable' class="dropdown" dropdown>
+                <a class="dropdown-toggle text-light" dropdownToggle>
+                  Welcome {{this.currentUser?.name | titlecase}}
                 </a>
-                <div class="dropdown-menu">
-                  <a  class="dropdown-item"> Dashboard </a>
-                  <a  class="dropdown-item"> Rides Offfered </a>
-                  <a  class="dropdown-item"> Rides booked </a>
+                <div class="dropdown-menu" *dropdownMenu>
+                  <a  class="dropdown-item btn"> Dashboard </a>
+                  <a  class="dropdown-item btn"> Rides Offfered </a>
+                  <a  class="dropdown-item btn"> Rides booked </a>
                   <div class="dropdown-divider"></div>
                   <a [routerLink]="['/profile']" class="dropdown-item"><i class="fa fa-user"></i> Profile </a>
                   <div class="dropdown-divider"></div>
-                  <a class='dropdown-item' (click)="_openIdConnectService.triggerSignOut()">
+                  <a class='dropdown-item btn' (click)="_openIdConnectService.triggerSignOut()">
                     <i class="fa fa-sign-out"></i>Sign out
                   </a>
                 </div>
