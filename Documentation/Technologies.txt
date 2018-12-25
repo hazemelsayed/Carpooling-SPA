@@ -5,3 +5,5 @@ Alertfyjs (notifications)
 NGX Bootstrap (alternative for jquery)
 Bootswatch (theme changing)
     npm install bootswatch
+
+    
