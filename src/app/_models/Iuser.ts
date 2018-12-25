@@ -1,6 +1,8 @@
 export interface IUser {
     id: number;
     name: string;
+    given_name: string;
+    family_name?: string;
     userName?: string;
     knownAs?: string;
     age?: number;
