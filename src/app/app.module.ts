@@ -14,6 +14,7 @@ import { AddAuthorizationHeaderInterceptor } from './shared/add-authorization-he
 import { RedirectSilentRenewComponent } from './signin-utilities/redirect-silent-renew/redirect-silent-renew.component';
 import { SigninOidcComponent } from './signin-utilities/signin-oidc/signin-oidc.component';
 import { ErrorInterceptor } from './shared/error-interceptor';
+import { RideDetailsComponent } from './rides/ride-details/ride-details.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { ErrorInterceptor } from './shared/error-interceptor';
       HomepageComponent,
       SigninOidcComponent,
       ProfileComponent,
-      RedirectSilentRenewComponent
+      RedirectSilentRenewComponent,
+      RideDetailsComponent
    ],
    imports: [
       BrowserModule,

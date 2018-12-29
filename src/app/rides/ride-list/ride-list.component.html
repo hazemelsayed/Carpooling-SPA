@@ -28,7 +28,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let trip of trips">
+          <tr *ngFor="let trip of trips"  (click)="goToRide(trip)">
             <td>
               <img class="img-thumbnail"
                 src="https://is4-ssl.mzstatic.com/image/thumb/Purple118/v4/9e/c7/d5/9ec7d59c-9b87-a8fc-753d-e04d45c0b349/source/30x30bb.jpg"

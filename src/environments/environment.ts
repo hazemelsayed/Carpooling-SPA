@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://localhost:44304/api/',
+  apiUrl: 'https://carpoolingapi.azurewebsites.net/api/',
   openIdConnectSettings: {
-    authority: 'https://localhost:44375/', // IDP server
+    authority: 'https://idp.azurewebsites.net/', // IDP server
     client_id: 'CarpoolingClient', // clientID as configured in the IDP level
     redirect_uri: 'https://localhost:4200/signin-oidc',
     scope: 'openid profile roles permissions carpoolingapi',

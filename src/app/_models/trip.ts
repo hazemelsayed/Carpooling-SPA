@@ -1,13 +1,14 @@
 export interface ITrip {
-    id: number;
-    creationDate;
-    travelStartDate;
-    applicationUserCarID: number;
-    sourceCityID;
-    destinationCityID;
-    seatsOffered;
-    bufferTimeID;
-    enrouteCities: [];
-    updatedDate;
-    createdDate;
-  }
+  rideId: string;
+  creationDate;
+  travelStartDate;
+  applicationUserCarID: number;
+  sourceCityID;
+  destinationCityID;
+  seatsOffered: number;
+  requests;
+  bufferTimeID;
+  enrouteCities: [];
+  updatedDate;
+  createdDate;
+}
